@@ -1,8 +1,7 @@
 // https://adventofcode.com/2023/day/1
 
-import { Benchmark } from "../utils/benchmark.ts";
+import { PuzzleRunnerHelper } from "../utils/puzzle-runner-helper.ts";
 import { getAllIndices, isNumber } from "../utils/utils.ts";
-import * as path from "https://deno.land/std@0.207.0/path/mod.ts";
 
 type NumberWords =
   | "one"
@@ -153,26 +152,15 @@ async function puzzle2(calibrationDocument: string) {
   console.log(`The calibration value is ${calibrationValuesSum}`);
 }
 
-const bench = new Benchmark({ autostart: true });
+const helper = new PuzzleRunnerHelper();
+const { puzzleIndex, puzzleInput } = helper;
 
-const args = Deno.args;
-// if args is empty error. If puzzle index specified use puzzle1 or puzzle2
-if (args.length === 0) {
-  throw new Error("Please specify puzzle index");
-}
-const puzzleIndex = args[0];
-
-// directory of the current script
-const __dirname = new URL(".", import.meta.url).pathname;
-const puzzleInput = path.join(__dirname, "input.txt");
-const calibrationDocument: string = await Deno.readTextFile(puzzleInput);
-
-if (puzzleIndex === "1") {
-  await puzzle1(calibrationDocument);
-} else if (puzzleIndex === "2") {
-  await puzzle2(calibrationDocument);
-} else {
-  throw new Error("Invalid puzzle index");
-}
-
-bench.end({ log: true });
+helper.benchmark(async () => {
+  if (puzzleIndex === 1) {
+    await puzzle1(puzzleInput);
+  } else if (puzzleIndex === 2) {
+    await puzzle2(puzzleInput);
+  } else {
+    throw new Error("Invalid puzzle index");
+  }
+});
