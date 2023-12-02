@@ -20,7 +20,7 @@ export class Benchmark {
     this.t1 = performance.now();
 
     if (log) {
-      console.log(`Elapsed ${(this.t1 - this.t0).toFixed(3)} milliseconds.`);
+      console.log(`\nElapsed ${(this.t1 - this.t0).toFixed(3)} milliseconds.`);
     }
   }
 }

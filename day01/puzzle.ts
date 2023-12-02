@@ -1,6 +1,6 @@
 // https://adventofcode.com/2023/day/1
 
-import { Benchmark } from "../utils/Benchmark.ts";
+import { Benchmark } from "../utils/benchmark.ts";
 import { getAllIndices, isNumber } from "../utils/utils.ts";
 import * as path from "https://deno.land/std@0.207.0/path/mod.ts";
 
