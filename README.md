@@ -35,6 +35,9 @@ an hour, every day of the next December.
 the produced code publicly available on the internet.
 No matter what, I will keep my promise.
 
+Devember: https://devember.org/rules/
+
+My contract: https://twitter.com/dav__cri/status/1731364220728475748
 https://twitter.com/dav__cri/status/1731364220728475748
 
 ## Devember devlog
