@@ -14,7 +14,7 @@ https://adventofcode.com/2023/
 ## Things I want to explore
 
 - [x] Deno minimal setup
-- [ ] https://docs.deno.com/runtime/manual/basics/debugging_your_code
+- [x] https://docs.deno.com/runtime/manual/basics/debugging_your_code
 - [ ] https://github.com/gvergnaud/ts-pattern#readme
 - [ ] Deno tests
 - [ ] https://github.com/sharkdp/hyperfine
