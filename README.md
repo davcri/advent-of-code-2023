@@ -79,7 +79,8 @@ definitely too much time.
 
 [UPDATE]: going from 1795ms to 170ms by memoizing one function.
 
-![image](https://github.com/davcri/advent-of-code-2023/assets/6860637/0cc79822-b5ca-483c-8ba8-4d421f47b831)
+![image](https://github.com/davcri/advent-of-code-2023/assets/6860637/b0ecfaaf-b514-424e-9ae0-e8f024a86cd4)
+
 ![image-1](https://github.com/davcri/advent-of-code-2023/assets/6860637/bd2f0f84-f4b5-4a94-8cdc-fdadbb5863d5)
 
 I'm pretty sure there's still room for improvement as `cardNumbers` could be refactored to be a
