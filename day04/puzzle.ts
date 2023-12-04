@@ -80,6 +80,27 @@ class ScratchcardPile {
     });
     return totalScore;
   }
+
+  getScratchcardsTotal(): number {
+    let totalScratchcards = 0;
+    const cardDuplicates = new Map<number, number>(); // <card id, duplicates count>
+
+    this.scratchcards.forEach((card, cardIndex) => {
+      const cardsCount = 1 + (cardDuplicates.get(cardIndex) ?? 0);
+      for (let duplicateIndex = 0; duplicateIndex < cardsCount; duplicateIndex++) {
+        totalScratchcards += 1;
+        const wnMatches = card.getWinningNumberMatches();
+        wnMatches.forEach((m, matchIndex) => {
+          const currentCardDuplicates =
+            cardDuplicates.get(cardIndex + 1 + matchIndex) ?? 0;
+          cardDuplicates.set(cardIndex + 1 + matchIndex, currentCardDuplicates + 1);
+        });
+      }
+    });
+    console.log(cardDuplicates);
+
+    return totalScratchcards;
+  }
 }
 
 helper.benchmark(async () => {
@@ -98,5 +119,7 @@ function puzzle1(input: string) {
 }
 
 function puzzle2(input: string) {
-  throw "Not implemented";
+  const pile = new ScratchcardPile(input);
+  const result = pile.getScratchcardsTotal();
+  console.log("🚀 ~ pile.getScratchcardsTotal():", result);
 }
