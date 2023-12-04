@@ -20,6 +20,7 @@ function parseLineAsNumbers(line: string): number[] {
 class Scratchcard {
   winningNumbers: number[];
   cardNumbers: number[];
+  _memoizedMatches: number[] | undefined;
 
   /**
    * @param scratchcard <winning numbers> | <cardNumbers>
@@ -42,12 +43,16 @@ class Scratchcard {
   }
 
   getWinningNumberMatches(): number[] {
+    if (this._memoizedMatches !== undefined) {
+      return this._memoizedMatches;
+    }
     const matches: number[] = [];
     this.winningNumbers.forEach((winningNumber) => {
       if (this.cardNumbers.includes(winningNumber)) {
         matches.push(winningNumber);
       }
     });
+    this._memoizedMatches = matches;
     return matches;
   }
 }
@@ -97,7 +102,6 @@ class ScratchcardPile {
         });
       }
     });
-    console.log(cardDuplicates);
 
     return totalScratchcards;
   }

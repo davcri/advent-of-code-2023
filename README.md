@@ -76,3 +76,11 @@ to find trivial mistakes.
 
 Regarding the solution I'm not completely satisfied as puzzle 2 takes 1800ms to compute on a M1 chip,
 definitely too much time.
+
+[UPDATE]: going from 1795ms to 170ms by memoizing one function.
+
+![image](https://github.com/davcri/advent-of-code-2023/assets/6860637/0cc79822-b5ca-483c-8ba8-4d421f47b831)
+![image-1](https://github.com/davcri/advent-of-code-2023/assets/6860637/bd2f0f84-f4b5-4a94-8cdc-fdadbb5863d5)
+
+I'm pretty sure there's still room for improvement as `cardNumbers` could be refactored to be a
+`Set<number>` instead of an `array[number]`, however this is already a big improvement.
