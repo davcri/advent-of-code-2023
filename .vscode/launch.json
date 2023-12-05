@@ -15,9 +15,9 @@
                 "run",
                 "--inspect-wait",
                 "--allow-all",
-                "day04/puzzle.ts",
-                "2",
-                "day04/input_example.txt"
+                "day05/puzzle.ts",
+                "1",
+                "day05/input_example.txt"
             ],
             "attachSimplePort": 9229
         }

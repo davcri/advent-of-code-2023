@@ -84,3 +84,14 @@ definitely too much time.
 
 I'm pretty sure there's still room for improvement as `cardNumbers` could be refactored to be a
 `Set<number>` instead of an `array[number]`, however this is already a big improvement.
+
+#### Day 05
+
+OMG I can't spend 3 hours a day on the AoC... However I found out the maximum size of a
+Map in Deno.
+
+![max_size_of_map_in_deno](/day05/max_map_size.png.png)
+
+Clearly I relied too much on OOP abstractions and I tried
+to keep remapping ranges stored in memory. Unfortunately I didn't look
+at the problem input which had big numbers and completely destroyed my first implementation.
