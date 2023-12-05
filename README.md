@@ -92,6 +92,10 @@ Map in Deno (16777216):
 
 <img src="./day05/max_map_size.png" width=450 alt="max_size_of_map_in_deno"  />
 
-Clearly I relied too much on OOP abstractions and I tried
-to keep remapping ranges stored in memory. Unfortunately I didn't look
-at the problem input which had big numbers and completely destroyed my first implementation.
+Clearly I relied too much on OOP abstractions: storing every range value in a map is a bad idea.
+Unfortunately I didn't look at the problem input which had big numbers and completely destroyed my
+first implementation.
+
+Regarding puzzle 2, well it took 26 minutes:
+
+![](./day05/puzzle2_time.png)

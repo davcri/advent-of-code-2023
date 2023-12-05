@@ -17,10 +17,7 @@ helper.benchmark(async () => {
 });
 
 function puzzle1(input: string) {
-  // const maxSeeds = getMaxSeedNumber();
-  // 4288802679
-
-  const a = new Almanac(input);
+  const a = new Almanac(input, "seedValues");
   console.log("seeds:", a.seeds);
   console.log();
 
@@ -36,19 +33,22 @@ function puzzle1(input: string) {
 }
 
 function puzzle2(input: string) {
-  throw "Not implemented";
-}
+  const a = new Almanac(input, "seedRanges");
 
-// TODO: refactor
-function getMaxSeedNumber() {
-  const input = helper._readFile("day05/input_dbg.txt");
-  const lines = input.split("\n");
-  let maxNum = 0;
-  lines.forEach((l) => {
-    const [n1, n2, n3] = l.split(" ").map((n) => parseInt(n));
-    console.log(n1, n2, n3);
-    maxNum = Math.max(maxNum, n1, n2, n3);
-  });
-  console.log("🚀 ~ maxNum:", maxNum);
-  return maxNum;
+  let lowestLocation = Infinity;
+
+  for (let i = 0; i < a.seedRanges.length; i++) {
+    console.log("start ", i);
+    const seedRange = a.seedRanges[i];
+    const timerId = `seedRange ${i} / ${a.seedRanges.length}`;
+    console.time(timerId);
+    for (let seed = seedRange[0]; seed <= seedRange[0] + seedRange[1]; seed++) {
+      const location = a.getLocation(seed);
+      lowestLocation = Math.min(lowestLocation, location);
+    }
+    console.log("TMP lowestLocation:", lowestLocation);
+    console.timeEnd(timerId);
+  }
+
+  console.log("🚀 ~ lowestLocation:", lowestLocation);
 }
