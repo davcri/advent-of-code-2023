@@ -41,7 +41,7 @@ https://twitter.com/dav__cri/status/1731364220728475748
 
 ## Devember devlog
 
-#### Day 01
+### Day 01
 
 The AoC puzzle for day 1 was quite tough, Hopefully I decided to use TS which is a
 language that I use almost every day.
@@ -52,7 +52,7 @@ dependencies](https://docs.deno.com/runtime/tutorials/manage_dependencies), but 
 it out. I spent some time setting up a small [Benchmark utility](./utils/) as
 performance is becoming an obsession of mine.
 
-#### Day 02
+### Day 02
 
 The AoC day 2 puzzle was easier than day 1, luckily 😅. I also had the pleasure of pair programming
 the first part with [rosepad21](https://github.com/rosepad21), a friend of mine. It was definitely
@@ -61,7 +61,7 @@ more enjoyable than doing it alone!
 Having some extra energy I set up a [`PuzzleRunnerHelper`](./utils/puzzle-runner-helper.ts) to clean
 up the `puzzle.ts` scripts from unnecessary noise.
 
-#### Day 03
+### Day 03
 
 The AoC puzzle took me some time but it was fun. Matrices are always interesting.
 
@@ -69,7 +69,7 @@ In terms of dev utilities, I set up the [Deno
 debugger](https://docs.deno.com/runtime/manual/basics/debugging_your_code) on VSCode, which helped
 me a lot.
 
-#### Day 04
+### Day 04
 
 I'm so glad I setup the debugger. Even if puzzles are still on the easy side, it helps a lot
 to find trivial mistakes.
@@ -79,18 +79,18 @@ definitely too much time.
 
 [UPDATE]: going from 1795ms to 170ms by memoizing one function.
 
-![image](https://github.com/davcri/advent-of-code-2023/assets/6860637/0cc79822-b5ca-483c-8ba8-4d421f47b831)
-![image-1](https://github.com/davcri/advent-of-code-2023/assets/6860637/bd2f0f84-f4b5-4a94-8cdc-fdadbb5863d5)
+<img src="https://github.com/davcri/advent-of-code-2023/assets/6860637/b0ecfaaf-b514-424e-9ae0-e8f024a86cd4" width=450  />
+<img src="https://github.com/davcri/advent-of-code-2023/assets/6860637/bd2f0f84-f4b5-4a94-8cdc-fdadbb5863d5" width=450  />
 
 I'm pretty sure there's still room for improvement as `cardNumbers` could be refactored to be a
 `Set<number>` instead of an `array[number]`, however this is already a big improvement.
 
-#### Day 05
+### Day 05
 
 OMG I can't spend 3 hours a day on the AoC... However I found out the maximum size of a
-Map in Deno.
+Map in Deno (16777216):
 
-![max_size_of_map_in_deno](/day05/max_map_size.png.png)
+<img src="./day05/max_map_size.png" width=450 alt="max_size_of_map_in_deno"  />
 
 Clearly I relied too much on OOP abstractions and I tried
 to keep remapping ranges stored in memory. Unfortunately I didn't look
