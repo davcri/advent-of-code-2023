@@ -3,78 +3,74 @@
 import { PuzzleRunnerHelper } from "../utils/puzzle-runner-helper.ts";
 import { isNumber } from "../utils/utils.ts";
 
-class PuzzleSolver {
-  constructor() {}
+function parseInputToArrays(puzzleInput: string) {
+  const lines = puzzleInput.split("\n");
+  let headerSkipped = false;
+  let parsingTimes = false;
+  let parsingDistances = false;
+  let numberParsing = "";
 
-  parseInputToArrays(puzzleInput: string) {
-    const lines = puzzleInput.split("\n");
-    let headerSkipped = false;
-    let parsingTimes = false;
-    let parsingDistances = false;
-    let numberParsing = "";
+  const times = [];
+  const distances = [];
 
-    const times = [];
-    const distances = [];
+  for (let j = 0; j < lines.length; j++) {
+    const line = lines[j];
+    parsingDistances = j === 1;
+    parsingTimes = j === 0;
+    let lineStr = "";
 
-    for (let j = 0; j < lines.length; j++) {
-      const line = lines[j];
-      parsingDistances = j === 1;
-      parsingTimes = j === 0;
-      let lineStr = "";
-
-      for (let i = 0; i < line.length; i++) {
-        const c = line[i];
-        lineStr += c;
-        // console.log(c, headerSkipped);
-        if (!headerSkipped) {
-          if (c === ":") {
-            headerSkipped = true;
-          }
-        } else {
-          // parsing times
-          if (parsingTimes) {
-            if (c !== " ") {
-              if (isNumber(c)) {
-                numberParsing += c;
-              }
-            }
-
-            if (c === " " || i === line.length - 1) {
-              if (numberParsing.length > 0) {
-                times.push(parseInt(numberParsing));
-                numberParsing = "";
-              }
+    for (let i = 0; i < line.length; i++) {
+      const c = line[i];
+      lineStr += c;
+      // console.log(c, headerSkipped);
+      if (!headerSkipped) {
+        if (c === ":") {
+          headerSkipped = true;
+        }
+      } else {
+        // parsing times
+        if (parsingTimes) {
+          if (c !== " ") {
+            if (isNumber(c)) {
+              numberParsing += c;
             }
           }
 
-          if (parsingDistances) {
-            if (c !== " ") {
-              if (isNumber(c)) {
-                numberParsing += c;
-              }
+          if (c === " " || i === line.length - 1) {
+            if (numberParsing.length > 0) {
+              times.push(parseInt(numberParsing));
+              numberParsing = "";
             }
+          }
+        }
 
-            if (c === " " || i === line.length - 1) {
-              if (numberParsing.length > 0) {
-                distances.push(parseInt(numberParsing));
-                numberParsing = "";
-              }
+        if (parsingDistances) {
+          if (c !== " ") {
+            if (isNumber(c)) {
+              numberParsing += c;
+            }
+          }
+
+          if (c === " " || i === line.length - 1) {
+            if (numberParsing.length > 0) {
+              distances.push(parseInt(numberParsing));
+              numberParsing = "";
             }
           }
         }
       }
-      parsingTimes = false;
-      parsingDistances = true;
-      headerSkipped = false;
     }
-    return { times, distances };
+    parsingTimes = false;
+    parsingDistances = true;
+    headerSkipped = false;
   }
+  return { times, distances };
 }
 
 const helper = new PuzzleRunnerHelper();
 const { puzzleIndex, puzzleInput } = helper;
 
-helper.benchmark(async () => {
+helper.benchmarkSync(() => {
   if (puzzleIndex === 1) {
     puzzle1(puzzleInput);
     0;
@@ -86,8 +82,7 @@ helper.benchmark(async () => {
 });
 
 function puzzle1(recordsSheet: string) {
-  const puzzleSolver = new PuzzleSolver();
-  const { times, distances } = puzzleSolver.parseInputToArrays(recordsSheet);
+  const { times, distances } = parseInputToArrays(recordsSheet);
 
   console.log("times:", times);
   console.log("distances:", distances);
@@ -115,6 +110,9 @@ function puzzle1(recordsSheet: string) {
   console.log("🚀 ~ winningStrategiesProduct:", winningStrategiesProduct);
 }
 
-function puzzle2(input: string) {
-  throw "Not implemented";
+function puzzle2(recordsSheet: string) {
+  let lines = recordsSheet.split("\n");
+  lines = lines.map((l) => l.replaceAll(" ", ""));
+  const adaptedInput = lines.join("\n");
+  puzzle1(adaptedInput);
 }

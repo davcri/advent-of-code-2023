@@ -25,14 +25,17 @@ export class PuzzleRunnerHelper {
       throw new Error("Please specify puzzle index");
     }
     const index = args[0];
-    console.assert(
-      index === "1" || index === "2",
-      `Invalid puzzle index ${index}`
-    );
+    console.assert(index === "1" || index === "2", `Invalid puzzle index ${index}`);
     return { puzzleIndex: Number(index), puzzleInputPath: args[1] };
   }
 
   benchmark(fun: () => Promise<void>) {
+    this.bench.start();
+    fun();
+    this.bench.end({ log: true });
+  }
+
+  benchmarkSync(fun: () => void) {
     this.bench.start();
     fun();
     this.bench.end({ log: true });
