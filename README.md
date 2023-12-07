@@ -104,4 +104,4 @@ Regarding puzzle 2, well it took 26 minutes:
 
 The puzzle was easier than the other days so I took a different approach to [input
 parsing](https://github.com/davcri/advent-of-code-2023/blob/main/day06/puzzle.ts#L6). It's probably
-silly to not use `.split()` and similar utilities, but it was a fun mental exercise.
+silly to not use `.split()` and `replaceAll()` as I did for puzzle 2, but it was a fun mental exercise.
