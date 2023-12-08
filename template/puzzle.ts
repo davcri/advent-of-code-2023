@@ -5,7 +5,7 @@ import { PuzzleRunnerHelper } from "../utils/puzzle-runner-helper.ts";
 const helper = new PuzzleRunnerHelper();
 const { puzzleIndex, puzzleInput } = helper;
 
-helper.benchmark(async () => {
+helper.benchmarkSync(() => {
   if (puzzleIndex === 1) {
     puzzle1(puzzleInput);
   } else if (puzzleIndex === 2) {

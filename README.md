@@ -105,3 +105,14 @@ Regarding puzzle 2, well it took 26 minutes:
 The puzzle was easier than the other days so I took a different approach to [input
 parsing](https://github.com/davcri/advent-of-code-2023/blob/main/day06/puzzle.ts#L6). It's probably
 silly to not use `.split()` and `replaceAll()` as I did for puzzle 2, but it was a fun mental exercise.
+
+### Day 07
+
+I love card games (look also at my [Triple Triad implementation](https://github.com/crystal-bit/triple-triad-godot) in Godot).
+
+Using an OOP for this project helped a lot for puzzle 1. I still need to figure out puzzle 2
+but I was pretty tired from the work week.
+
+### Day 08
+
+Puzzle 1 is taking an eternity to run.
