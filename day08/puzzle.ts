@@ -94,5 +94,54 @@ function puzzle1(input: string) {
 }
 
 function puzzle2(input: string) {
-  throw "Not implemented";
+  const lines = input.split("\n");
+  const navigationInstructions = lines[0].trim().split("") as Direction[];
+  const navigationLinesParsed = lines
+    .filter((l, idx) => idx > 1)
+    .map((l, idx) => parseNavigationLine(l, idx));
+
+  const navigationMap = new Map<string, { left: string; right: string }>();
+  const startingLabels: string[] = [];
+  navigationLinesParsed.forEach((i) => {
+    navigationMap.set(i.start, {
+      left: i.connections[0],
+      right: i.connections[1],
+    });
+    if (i.start.endsWith("A")) {
+      startingLabels.push(i.start);
+    }
+  });
+
+  console.log("🚀 ~ startingLabels:", startingLabels);
+
+  let notFound = true;
+  let currentLabels = [...startingLabels];
+  let steps = 0;
+  let allNodesLanded = true;
+  do {
+    allNodesLanded = true;
+    for (let idx = 0; idx < currentLabels.length; idx++) {
+      const nextDirections = navigationMap.get(currentLabels[idx]);
+      if (!nextDirections) {
+        throw new Error("Invalid navigation instruction");
+      }
+      const nextDir = navigationInstructions[steps % navigationInstructions.length];
+      currentLabels[idx] = nextDirections[nextDir === "R" ? "right" : "left"];
+      if (!currentLabels[idx].endsWith("Z")) {
+        allNodesLanded = false;
+      }
+    }
+
+    if (allNodesLanded) {
+      notFound = false;
+    }
+    steps += 1;
+    // if (steps > 60000000) {
+    //   console.log(steps);
+    // }
+    if (steps % 1e7 === 0) {
+      console.log(steps);
+    }
+  } while (notFound);
+  console.log(steps);
 }

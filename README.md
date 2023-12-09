@@ -115,4 +115,15 @@ but I was pretty tired from the work week.
 
 ### Day 08
 
-Puzzle 1 is taking an eternity to run.
+Puzzle 1 is taking an eternity to run, then I realized that I misinterpreted the starting and ending
+positions. They are always "AAA" and "ZZZ" so they don't need to be parsed from the input.
+
+I guess double checking is always a good idea.
+
+Puzzle 2 is taking an eternity to run, for real this time.
+I give up for now, maybe I'll redo it in the future.
+
+### Day 09
+
+This reminded me of the [Tartaglia's/Pascal's triangle](https://en.wikipedia.org/wiki/Pascal%27s_triangle).
+Tricky problem but not too difficult to understand.
