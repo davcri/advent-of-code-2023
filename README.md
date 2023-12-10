@@ -127,3 +127,12 @@ I give up for now, maybe I'll redo it in the future.
 
 This reminded me of the [Tartaglia's/Pascal's triangle](https://en.wikipedia.org/wiki/Pascal%27s_triangle).
 Tricky problem but not too difficult to understand.
+
+### Day 10
+
+My idea was to run Dijkstra's algorithm where every weight is 1. Unfortunately I only managed to
+build the graph data structure starting from the puzzle input (the boring part) and I still need to
+write the Dijkstra's algorithm (the fun part).
+
+<img src="https://github.com/davcri/advent-of-code-2023/assets/6860637/b74f49d0-815b-4fa2-826f-188bf0ab6c61" width=450  />
+
