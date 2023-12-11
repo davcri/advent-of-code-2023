@@ -136,3 +136,11 @@ write the Dijkstra's algorithm (the fun part).
 
 <img src="https://github.com/davcri/advent-of-code-2023/assets/6860637/b74f49d0-815b-4fa2-826f-188bf0ab6c61" width=450  />
 
+### Day 11
+
+Managed to get 1 star thanks to the work done for day 10: I reused a lot of the grid and tile
+classes. Actually I copy paste the source files, but that's because I was in a hurry.
+
+Puzzle 2 seems doable using a more math approach: instead of expanding the matrix it should be
+better to store the "expansion value" in the tile and then use it to calculate the correct
+path length.

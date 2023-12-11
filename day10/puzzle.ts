@@ -18,7 +18,21 @@ helper.benchmarkSync(() => {
 
 function puzzle1(input: string) {
   const grid = new Grid(input.split("\n"));
-  grid.navigateLoop(grid.startingPoint!);
+  let startingPoint: Tile | undefined;
+
+  for (let i = 0; i < grid.data.length; i++) {
+    const row = grid.data[i];
+    for (let j = 0; j < row.length; j++) {
+      const tile = row[j];
+      if (tile.value === "S") {
+        startingPoint = tile;
+        // grid.startingPoint = new Tile("S", lineIndex, startPosIndex);
+      }
+    }
+  }
+  if (startingPoint === undefined) throw new Error("No starting point found");
+
+  grid.navigateLoop(startingPoint);
 }
 
 function puzzle2(input: string) {

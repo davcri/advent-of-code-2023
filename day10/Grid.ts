@@ -4,7 +4,6 @@ import { DIR_AS_CELL_COORDINATES, Tile, TileType, TILE_DIRECTIONS } from "./tile
 
 export class Grid {
   data: Tile[][] = [];
-  startingPoint: Tile | undefined;
   rowCount: number;
   colCount: number;
 
@@ -13,13 +12,8 @@ export class Grid {
       const row = l
         .split("")
         .map((el, elIdx) => new Tile(el as TileType, lineIndex, elIdx));
-      const startPosIndex = row.findIndex((t) => t.value === "S");
       this.data.push(row);
-      if (this.startingPoint === undefined && startPosIndex >= 0) {
-        this.startingPoint = new Tile("S", lineIndex, startPosIndex);
-      }
     });
-    if (this.startingPoint === undefined) throw new Error("No starting point found");
 
     this.rowCount = this.data.length;
     this.colCount = this.data[0].length;
