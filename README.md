@@ -144,3 +144,9 @@ classes. Actually I copy paste the source files, but that's because I was in a h
 Puzzle 2 seems doable using a more math approach: instead of expanding the matrix it should be
 better to store the "expansion value" in the tile and then use it to calculate the correct
 path length.
+
+### Day 12
+
+I'm getting some AoC fatigue: doing puzzles after 8h of daily work is not a breeze.
+
+However I managed to get 1 star with some help from ChatGPT see...
