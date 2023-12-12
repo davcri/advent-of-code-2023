@@ -149,4 +149,11 @@ path length.
 
 I'm getting some AoC fatigue: doing puzzles after 8h of daily work is not a breeze.
 
-However I managed to get 1 star with some help from ChatGPT see...
+However I managed to get 1 star with some help from ChatGPT see https://github.com/davcri/advent-of-code-2023/blob/main/day12/puzzle.ts#L23-L43
+
+I like using AI to assist in small tasks (note: I never used it to elaborate the puzzle logic).
+
+Also with today's puzzle I managed to get more stars than last year!
+
+<img width="450" alt="image" src="https://github.com/davcri/advent-of-code-2023/assets/6860637/4a7510d3-b077-4e1e-bd87-7a6c6acd60d6">
+
